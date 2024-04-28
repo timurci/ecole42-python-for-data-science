@@ -1,6 +1,6 @@
-from datetime import date, timedelta
+from datetime import date
 
-past = date(1970,1,1)
+past = date(1970, 1, 1)
 today = date.today()
 since = (today - past).total_seconds()
 
