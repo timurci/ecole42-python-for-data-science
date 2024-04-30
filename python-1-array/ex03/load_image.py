@@ -1,6 +1,7 @@
 from PIL import Image
 from numpy import array
 
+
 def ft_load(path: str) -> array:
     """Load an image from path"""
     if not isinstance(path, str):
@@ -12,11 +13,11 @@ def ft_load(path: str) -> array:
         raise
     except Image.UnidentifiedImageError:
         raise
-    except OSError: # If the file cannot be opened
+    except OSError:  # If the file cannot be opened
         raise
 
     width, height = img.size
-    
+
     img_array = array(img.getdata())
     img_array = img_array.reshape((height, width, img_array.shape[1]))
 

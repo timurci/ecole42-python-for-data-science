@@ -1,6 +1,7 @@
 from load_image import ft_load
 from matplotlib import pyplot as plt
 
+
 def main():
     """Show zoomed version of an image"""
     path = "animal.jpeg"
@@ -25,6 +26,7 @@ def main():
     else:
         plt.imshow(sliced)
     plt.show()
+
 
 if __name__ == "__main__":
     main()

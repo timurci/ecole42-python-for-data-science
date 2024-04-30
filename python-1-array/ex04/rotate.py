@@ -2,6 +2,7 @@ from load_image import ft_load
 from matplotlib import pyplot as plt
 from numpy import vstack
 
+
 def main():
     """Show square cut and rotated version of an image"""
     path = "animal.jpeg"
@@ -29,6 +30,7 @@ def main():
 
     plt.imshow(transposed, cmap='gray', vmin=0, vmax=255)
     plt.show()
+
 
 if __name__ == "__main__":
     main()
