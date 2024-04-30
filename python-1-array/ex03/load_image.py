@@ -1,8 +1,8 @@
 from PIL import Image
-from numpy import array
+from numpy import array, ndarray
 
 
-def ft_load(path: str) -> array:
+def ft_load(path: str) -> ndarray:
     """Load an image from path"""
     if not isinstance(path, str):
         raise AssertionError("path is not an object of type 'str'")

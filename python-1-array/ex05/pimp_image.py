@@ -1,35 +1,69 @@
-from numpy import array
+from numpy import ndarray
 
 
-def ft_invert(array) -> array:
+def ft_invert(image) -> ndarray:
     """Invert the color of the image received as a numpy array"""
-    array[:, :, 0] = 255 - array[:, :, 0]
-    array[:, :, 1] = 255 - array[:, :, 1]
-    array[:, :, 2] = 255 - array[:, :, 2]
+    try:
+        _validate_image(image)
+    except AssertionError:
+        raise
+
+    image[:, :, 0] = 255 - image[:, :, 0]
+    image[:, :, 1] = 255 - image[:, :, 1]
+    image[:, :, 2] = 255 - image[:, :, 2]
+    return image
 
 
-def ft_red(array) -> array:
+def ft_red(image) -> ndarray:
     """Convert the color of the image received to red"""
-    array[:, :, 1:] *= 0
-    return array
+    try:
+        _validate_image(image)
+    except AssertionError:
+        raise
+
+    image[:, :, 1:] *= 0
+    return image
 
 
-def ft_green(array) -> array:
+def ft_green(image) -> ndarray:
     """Convert the color of the image received to green"""
-    array[:, :, 0:3:2] *= 0
-    return array
+    try:
+        _validate_image(image)
+    except AssertionError:
+        raise
+
+    image[:, :, 0:3:2] *= 0
+    return image
 
 
-def ft_blue(array) -> array:
+def ft_blue(image) -> ndarray:
     """Convert the color of the image received to blue"""
-    array[:, :, :2] *= 0
-    return array
+    try:
+        _validate_image(image)
+    except AssertionError:
+        raise
+
+    image[:, :, :2] *= 0
+    return image
 
 
-def ft_grey(array) -> array:
+def ft_grey(image) -> ndarray:
     """Convert the image to grayscale"""
-    maxed = array.max(axis=2)
-    array[:, :, 0] = maxed
-    array[:, :, 1] = maxed
-    array[:, :, 2] = maxed
-    return array
+    try:
+        _validate_image(image)
+    except AssertionError:
+        raise
+
+    maxed = image.max(axis=2)
+    image[:, :, 0] = maxed
+    image[:, :, 1] = maxed
+    image[:, :, 2] = maxed
+    return image
+
+
+def _validate_image(image):
+    """Check if image object is of correct data type and format"""
+    if not isinstance(image, ndarray):
+        raise AssertionError("the image object is not of type 'ndarray'")
+    if not len(image.shape) == 3:
+        raise AssertionError("the image is not 3D")
