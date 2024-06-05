@@ -1,5 +1,7 @@
 def ft_tqdm(lst: range):
     """Print a progress bar given an object of type 'range'"""
+    if not isinstance(lst, range):
+        raise TypeError("lst has to be of type 'range'")
 
     fill = "█"
     count = 1
