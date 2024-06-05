@@ -3,8 +3,8 @@ import sys
 
 def main():
     try:
-        if len(sys.argv) > 2:
-            raise AssertionError("more than one argument is provided")
+        if len(sys.argv) != 2:
+            raise AssertionError("incorrect number of arguments")
 
         try:
             number = int(sys.argv[1])
