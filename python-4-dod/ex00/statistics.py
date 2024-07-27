@@ -48,7 +48,7 @@ def _median(vector: tuple[int | float, ...]) -> int | float:
     if len(vector) % 2 == 1:
         return ordered[half_inx]
     else:
-        return _mean(tuple(ordered[half_inx:(half_inx + 1)]))
+        return _mean(tuple(ordered[(half_inx - 1):(half_inx + 1)]))
 
 
 def _quartile(vector: tuple[int | float, ...]) -> tuple[float, float]:
